@@ -1,10 +1,10 @@
 [Input]
-- img original image of size M x N
-- k1  parameter of the box kernel used for creating
+- img: original image of size M x N
+- k1: parameter of the box kernel used for creating
   the sketch
   
 [Output]
-- d watercolor painting of the image
+- d: watercolor painting of the image
 
 [Algorithm]
 - Create a blurred image using a box kernel with the input k1 parameter
@@ -12,6 +12,7 @@
 - Convert and then combine the edges detected in (2) to a gray-scale image; Multiply the image by a factor of 2 to increase the contrast
 - Blur the original image with another box kernel with a fixed parameter k2 = 22. Increase the brightness of this color layer by multiplying 1.5
 - Add the negative of the resulting image from (3) to (4)
+
 
 <img width="640" alt="watercolor" src="https://github.com/user-attachments/assets/5060500b-90ce-423c-8412-c47963382706" />
 
@@ -22,6 +23,7 @@ I used edge detection, specifically magnitude of gradient, to create the sketch 
 I used edge detection on each of the red, green and blue (RGB) channels and converted the edge image to a gray-scale using the Matlab function rgb2gray.
 
 Then, I blurred the original image with a fixed box kernel (k2 = 22) to create the color of the watercolor painting. Finally, the sketch is added to this color layer.
+
 
 <img width="640" alt="different k" src="https://github.com/user-attachments/assets/46823b4d-9e6f-43ac-be0b-ad0f2d739f7d" />
 
