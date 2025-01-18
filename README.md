@@ -13,7 +13,7 @@
 - Blur the original image with another box kernel with a fixed parameter k2 = 22. Increase the brightness of this color layer by multiplying 1.5
 - Add the negative of the resulting image from (3) to (4)
 
-<img width="793" alt="watercolor" src="https://github.com/user-attachments/assets/5060500b-90ce-423c-8412-c47963382706" />
+<img width="640" alt="watercolor" src="https://github.com/user-attachments/assets/5060500b-90ce-423c-8412-c47963382706" />
 
 The core idea for converting an image to a watercolor painting was to create the sketch by edge detection and then add this sketch to a color layer. 
 
