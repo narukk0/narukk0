@@ -7,11 +7,11 @@
 - d watercolor painting of the image
 
 [Algorithm]
-1. Create a blurred image using a box kernel with the input k1 parameter
-2. For each red, green and blue channels of the blurred image in (1), detect the edges using magnitude of gradient
-3. Convert and then combine the edges detected in (2) to a gray-scale image; Multiply the image by a factor of 2 to increase the contrast
-4. Blur the original image with another box kernel with a fixed parameter k2 = 22. Increase the brightness of this color layer by multiplying 1.5
-5. Add the negative of the resulting image from (3) to (4)
+- Create a blurred image using a box kernel with the input k1 parameter
+- For each red, green and blue channels of the blurred image in (1), detect the edges using magnitude of gradient
+- Convert and then combine the edges detected in (2) to a gray-scale image; Multiply the image by a factor of 2 to increase the contrast
+- Blur the original image with another box kernel with a fixed parameter k2 = 22. Increase the brightness of this color layer by multiplying 1.5
+- Add the negative of the resulting image from (3) to (4)
 
 ------------------------------------------------------
 The core idea for converting an image to a watercolor painting was to create the sketch by edge detection and then add this sketch to a color layer. 
