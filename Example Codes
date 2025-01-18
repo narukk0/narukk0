@@ -1,0 +1,39 @@
+% Watercolor
+function d = watercolor(img, t)
+f = double(img)/double(max(img, [], ’all’)
+);
+b = imblur(f, t);
+edge = imedge(b);
+edge = 2.5*rgb2gray(edge);
+d = 1.5*imblur(f, 22);
+d(:,:,1) = d(:,:,1)-edge;
+d(:,:,2) = d(:,:,2)-edge;
+d(:,:,3) = d(:,:,3)-edge;
+end
+
+% Blurring With Box Kernel
+function d_1 = imblur(f, k)
+A = f(:,:,1);
+B = f(:,:,2);
+C = f(:,:,3);
+w = zeros(k,k);
+w = w + 1/(kˆ2);
+d_1(:,:,1) = conv2(A,w,’same’);
+d_1(:,:,2) = conv2(B,w,’same’);
+d_1(:,:,3) = conv2(C,w,’same’);
+end
+
+% Edge Detection
+function d_2 = imedge(f)
+A = f(:,:,1);
+B = f(:,:,2);
+C = f(:,:,3);
+gx = [-1 -2 -1; 0 0 0; 1 2 1];
+gy = [-1 0 1; -2 0 2; -1 0 1];
+d_2(:,:,1) = abs(conv2(A,gx,’same’))+abs(
+conv2(A,gy,’same’));
+d_2(:,:,2) = abs(conv2(B,gx,’same’))+abs(
+conv2(B,gy,’same’));
+d_2(:,:,3) = abs(conv2(C,gx,’same’))+abs(
+conv2(C,gy,’same’));
+end
